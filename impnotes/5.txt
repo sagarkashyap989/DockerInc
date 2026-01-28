@@ -1,194 +1,219 @@
-Perfect 👍 **Practical No. 5** is **Pandas (Python)** and it’s **very scoring** if you write it cleanly.
-
-I’ll explain **what to type, what it does, and what to say in viva** — slowly.
-
----
-
-# 🧪 PRACTICAL NO. 5 – Pandas
-
-## 📊 Reshaping Hierarchical Data & Pivoting DataFrame
-
-### 🎯 **Aim**
-
-👉 *To perform reshaping operations using stack/unstack and pivoting using pivot and pivot_table.*
+Alright 😄 **Practical No. 5** is one of the **most interesting + high-impact** practicals.
+Don’t worry—we’ll do it **conceptually safe + exam-oriented** (no real victims).
 
 ---
 
-## 🟢 PART A: Hierarchical Data (MultiIndex)
+## 🧪 Practical No. 5
 
-### 🔹 STEP 1: Import Pandas
+### **Use of Social Engineering Toolkit (SET)**
 
-```python
-import pandas as pd
+---
+
+## ✅ Aim
+
+To perform a **social engineering attack simulation** using the **Social Engineering Toolkit (SET)** in Kali Linux.
+
+
+
+---
+
+## ⚠️ Important (Exam Note)
+
+This practical is performed **only in a lab / educational environment** for learning purposes.
+
+---
+
+## 🛠 Tool Used
+
+* **Social Engineering Toolkit (SET)**
+* OS: **Kali Linux**
+
+---
+
+## STEP 1️⃣: Start Kali Linux
+
+1. Open **VirtualBox**
+2. Start **Kali Linux**
+3. Login normally
+
+---
+
+## STEP 2️⃣: Open Social Engineering Toolkit
+
+![Image](https://www.winmill.com/wp-content/uploads/2023/04/SETP1.png)
+
+![Image](https://www.webasha.com/blog/uploads/images/202412/image_750x_675910b5f2082.webp)
+
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/20210319101836/13.PNG)
+
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/20210319100106/7.PNG)
+
+### Steps:
+
+1. Click **Kali Menu**
+2. Go to **Exploitation Tools**
+3. Click **Social Engineering Toolkit**
+4. Terminal opens → type **Enter**
+
+You’ll see the SET main menu ✅
+
+---
+
+## STEP 3️⃣: Choose Social Engineering Attack
+
+In SET terminal, select:
+
+```text
+1) Social-Engineering Attacks
 ```
 
----
-
-### 🔹 STEP 2: Create Hierarchical (MultiIndex) Data
-
-```python
-data = {
-    "Sales": [25000, 30000, 20000, 28000]
-}
-
-index = pd.MultiIndex.from_tuples(
-    [
-        ("North", "Laptop"),
-        ("North", "Mobile"),
-        ("South", "Laptop"),
-        ("South", "Mobile")
-    ],
-    names=["Region", "Product"]
-)
-
-df = pd.DataFrame(data, index=index)
-print(df)
-```
-
-### 🔍 Output
-
-```
-Sales
-Region Product
-North  Laptop   25000
-       Mobile   30000
-South  Laptop   20000
-       Mobile   28000
-```
-
-> 💡 **Viva line:**
-> “MultiIndex allows multiple levels of indexing.”
+👉 Press **1** → Enter
 
 ---
 
-## 🟢 STEP 3: Unstack (Rows → Columns)
+## STEP 4️⃣: Website Attack Vectors
 
-```python
-unstacked_df = df.unstack()
-print(unstacked_df)
+Next menu:
+
+```text
+2) Website Attack Vectors
 ```
 
-### 🧠 What happens?
-
-* **Product** moves from rows → columns
-
-> 💡 Viva: *What does unstack do?*
-> ✔ Converts inner index into columns
+👉 Press **2** → Enter
 
 ---
 
-## 🟢 STEP 4: Stack (Columns → Rows)
+## STEP 5️⃣: Credential Harvester Attack
 
-```python
-stacked_df = unstacked_df.stack()
-print(stacked_df)
+Next option:
+
+```text
+3) Credential Harvester Attack Method
 ```
 
-### 🧠 What happens?
-
-* Restores original structure
-
-> 💡 Viva line:
-> “Stack reverses the unstack operation.”
+👉 Press **3** → Enter
 
 ---
 
-# 🟢 PART B: Pivoting DataFrame
+## STEP 6️⃣: Site Cloner
 
----
+Choose:
 
-## 🔹 STEP 5: Create Normal DataFrame
-
-```python
-data = {
-    "Region": ["North", "North", "South", "South"],
-    "Product": ["Laptop", "Mobile", "Laptop", "Mobile"],
-    "Sales": [25000, 30000, 20000, 28000]
-}
-
-df2 = pd.DataFrame(data)
-print(df2)
+```text
+2) Site Cloner
 ```
 
+👉 Press **2** → Enter
+
 ---
 
-## 🟢 STEP 6: Pivot the DataFrame
+## STEP 7️⃣: Enter Attacker IP Address
 
-```python
-pivot_df = df2.pivot(
-    index="Region",
-    columns="Product",
-    values="Sales"
-)
-print(pivot_df)
+SET will ask:
+
+```text
+Enter the IP address for the POST back
 ```
 
-### 🔍 Output
+### Find your IP:
 
-```
-Product  Laptop  Mobile
-Region
-North     25000   30000
-South     20000   28000
-```
+Open **new terminal** and type:
 
-> 💡 **Important:**
-> `pivot()` works only when **no duplicate values** exist.
-
----
-
-## 🟢 STEP 7: Pivot Table (Aggregation)
-
-```python
-pivot_table_df = pd.pivot_table(
-    df2,
-    index="Region",
-    columns="Product",
-    values="Sales",
-    aggfunc="sum"
-)
-print(pivot_table_df)
+```bash
+ip a
 ```
 
-> 💡 Viva line:
-> “pivot_table handles duplicate values using aggregation.”
+Example:
+
+```text
+192.168.56.101
+```
+
+👉 Enter this IP in SET
 
 ---
 
-## 🧠 MOST IMPORTANT VIVA QUESTIONS
+## STEP 8️⃣: Enter Website to Clone
 
-### Q1: What is MultiIndex?
+SET will ask:
 
-✔ Index with multiple levels
+```text
+Enter the URL to clone
+```
 
-### Q2: Difference between stack and unstack?
+Example (for demo):
 
-✔ stack → columns to rows
-✔ unstack → rows to columns
+```text
+http://testphp.vulnweb.com
+```
 
-### Q3: Difference between pivot and pivot_table?
-
-✔ pivot → no duplicates
-✔ pivot_table → supports aggregation
-
-### Q4: When do we use pivot_table?
-
-✔ When duplicate values exist
+⚠️ **Do NOT use real login websites in exams**
 
 ---
 
-## 🧠 ONE-LINE PRACTICAL SUMMARY (WRITE THIS)
+## STEP 9️⃣: Attack Running (Demo Mode)
 
-> “In Practical 5, we created hierarchical data using MultiIndex, reshaped it using stack and unstack, and performed pivoting using pivot and pivot_table.”
+* SET clones the website
+* Creates a fake login page
+* Starts listening for credentials
+
+If someone enters credentials on cloned page →
+They appear in the SET terminal
 
 ---
 
-### ✅ Practical 5 DONE
+## 📌 Observation
 
-If you want next:
+* Website successfully cloned
+* Login credentials captured (demo)
+* Social engineering attack simulated
 
-* 🗣️ **Only viva Q&A (quick revision)**
-* 📝 **How to write this in exam answer format**
-* ❌ **Common mistakes teachers cut marks for**
+---
 
-Just tell me 😊
+## ✍️ What to Write in Practical File (VERY IMPORTANT)
+
+### **Aim:**
+
+To perform a social engineering attack using Social Engineering Toolkit.
+
+### **Tool Used:**
+
+Social Engineering Toolkit (SET)
+
+### **Procedure:**
+
+1. Started Kali Linux virtual machine.
+2. Opened Social Engineering Toolkit from Kali menu.
+3. Selected Social Engineering Attack.
+4. Chose Website Attack Vector.
+5. Used Credential Harvester method.
+6. Cloned a demo website to capture credentials.
+
+### **Result:**
+
+Social engineering attack simulation was successfully performed using SET.
+
+---
+
+## 🔥 Viva-Ready Short Q&A
+
+**Q. What is Social Engineering?**
+👉 Manipulating users to reveal confidential information.
+
+**Q. What is SET?**
+👉 A toolkit used to perform social engineering attacks.
+
+**Q. What is Credential Harvesting?**
+👉 Capturing usernames and passwords using fake login pages.
+
+---
+
+## ✅ Practical No. 5 COMPLETED 💯
+
+Next?
+
+* 👉 **Practical No. 6 (ZAP Proxy – Web Application Security)**
+* 👉 **Only viva questions**
+* 👉 **Exam screenshot checklist**
+
+Just say **“Practical 6”** 🚀

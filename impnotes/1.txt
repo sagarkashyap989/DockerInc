@@ -1,203 +1,229 @@
-Perfect, Sagar 👍
-Don’t worry—I’ll walk you through **Practical No. 1** **slowly, step-by-step**, assuming you’re **completely new to Power BI**. By the end, you’ll also know **what to say in viva**.
-
-Everything below is exactly based on **Practical 1 from your PDF** .
+Perfect 👍 we’ll do **Practical No. 1** slowly and **Windows-friendly**, assuming **zero Linux background**. I’ll explain *what to do*, *why*, and *what to write in your practical file*.
+You don’t need to rush—this practical is mostly **setup**, not hacking yet.
 
 ---
 
-## 🔹 PRACTICAL NO. 1 – Power BI (Beginner Friendly)
+## 🧪 Practical No. 1
 
-### **Aim**
+### **Exploring and Building a Verification Lab for Penetration Testing (Kali Linux)**
 
-👉 *Create Charts and Reports in Power BI*
-
----
-
-## 🟢 STEP 1: Open Power BI & Load Sample Data
-
-1. Open **Power BI Desktop**
-2. On the **Home screen**
-3. Click **“Try a sample dataset”**
-4. Select **Financials**
-5. Click **Load**
-
-✅ Power BI will automatically load a table named **Financials**
-
-> 💡 **Viva line:**
-> “We used Power BI’s inbuilt Financials sample dataset for analysis.”
+> 💡 Since you are familiar only with **Windows**, we’ll use **VirtualBox** to run Kali Linux **inside Windows** (no dual boot, no risk).
 
 ---
 
-## 🟢 STEP 2: Understand the Dataset (Very Important for Viva)
+## ✅ Aim
 
-1. Click **Data View** (📊 table icon on left)
-2. Observe these columns:
-
-| Column     | Meaning          |
-| ---------- | ---------------- |
-| Country    | Country name     |
-| Segment    | Business segment |
-| Product    | Product name     |
-| Sales      | Total sales      |
-| Profit     | Net profit       |
-| Discount   | Discount given   |
-| Units Sold | Quantity sold    |
-| Year       | Year             |
-| Month      | Month            |
-
-> 💡 **Viva question:** *What is Sales?*
-> ✔️ “Sales represents total revenue generated.”
+To set up a **Kali Linux virtual lab** on a Windows system for penetration testing.
 
 ---
 
-## 🟢 STEP 3: Create Calculated Measures (DAX)
+## ✅ Requirements (Simple Language)
 
-Go to:
-**Modeling → New Measure**
+* **Windows PC / Laptop**
+* **Minimum 8 GB RAM** (4 GB also works, but slower)
+* **Internet connection**
+* **VirtualBox software**
+* **Kali Linux ISO file**
 
-### 1️⃣ Total Sales
+*(All mentioned in your practical PDF)* 
 
-```DAX
-Total Sales = SUM(Financials[Sales])
+---
+
+## STEP 1️⃣: Install VirtualBox (On Windows)
+
+![Image](https://pureinfotech.com/wp-content/uploads/2021/04/virtualbox-install-windows-10_hero-1.jpg)
+
+![Image](https://geek-university.com/wp-content/images/oracle-virtualbox/download-oracle-virtualbox.jpg)
+
+![Image](https://learn.openwaterfoundation.org/owf-learn-virtualbox/install-host/win/images7/win-host-install1.png)
+
+### What is VirtualBox?
+
+VirtualBox lets you run **another OS (Linux)** inside **Windows**, like an app.
+
+### Steps:
+
+1. Open browser → search **VirtualBox download**
+2. Download **Windows hosts**
+3. Double-click installer
+4. Click **Next → Next → Yes → Install**
+5. Finish & open VirtualBox
+
+✅ If VirtualBox opens, step 1 is DONE.
+
+---
+
+## STEP 2️⃣: Download Kali Linux ISO
+
+![Image](https://www.kali.org/blog/kali-linux-2022-1-release/images/desktop-wallpaper.png)
+
+![Image](https://www.kali.org/docs/installation/hard-disk-install/boot-installer.png)
+
+![Image](https://www.kali.org/images/notebook-kali-2024.1.jpg)
+
+### What is Kali Linux?
+
+Kali Linux is a **Linux OS made for ethical hacking & cybersecurity**.
+
+### Steps:
+
+1. Search **Kali Linux download**
+2. Go to official site
+3. Download **Installer ISO (64-bit)**
+4. Wait for download (2–4 GB)
+
+⚠️ Don’t extract the file. Keep it as **.iso**
+
+---
+
+## STEP 3️⃣: Create Kali Linux Virtual Machine
+
+![Image](https://cdn.diskinternals.com/media/en/products/vmfs-recovery/vmfs-981-min.png)
+
+![Image](https://www.debugpoint.com/wp-content/uploads/2023/02/Kali-Linux-running-inside-VirtualBox-on-Windows.jpg)
+
+![Image](https://i0.wp.com/pureinfotech.com/wp-content/uploads/2023/07/virtualbox-manager-mount-iso-vm.webp?quality=78\&resize=771%2C478\&ssl=1\&strip=all)
+
+### Steps inside VirtualBox:
+
+1. Open **VirtualBox**
+
+2. Click **New**
+
+3. Fill details:
+
+   * **Name:** Kali Linux
+   * **Type:** Linux
+   * **Version:** Debian (64-bit)
+
+4. **RAM:**
+
+   * Minimum: 2048 MB
+   * Recommended: **4096 MB**
+
+5. **Hard Disk:**
+
+   * Create new disk
+   * Type: VDI
+   * Allocation: Dynamically allocated
+   * Size: **30 GB**
+
+6. Go to **Settings → Storage**
+
+   * Click **Empty**
+   * Click disk icon → **Choose Kali ISO**
+   * Attach ISO
+
+---
+
+## STEP 4️⃣: Install Kali Linux (Easy Mode)
+
+![Image](https://www.kali.org/docs/installation/hard-disk-install/boot-installer.png)
+
+![Image](https://linuxtechi.com/wp-content/uploads/2017/03/Kali-Linux-Graphical-Install.jpg)
+
+![Image](https://www.kali.org/docs/installation/hard-disk-install/setup-default-metapackages.png)
+
+1. Click **Start**
+2. Select **Graphical Install**
+3. Choose:
+
+   * Language → English
+   * Country → India
+   * Keyboard → English
+4. Network → Automatic
+5. Username & password → remember it
+6. Disk → **Use entire disk**
+7. Confirm → Install
+8. Wait ⏳ (10–20 min)
+9. When done → **Remove ISO & Restart**
+
+🎉 Kali Linux desktop will appear.
+
+---
+
+## STEP 5️⃣: Basic Kali Configuration
+
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2AiXXnODneHTJKwR0Y-eiU2g.jpeg)
+
+![Image](https://www.thetqweb.com/wp-content/uploads/2021/04/How-to-Update-Kali-Linux-Updating-Kali-Linux-thetqweb.png)
+
+![Image](https://mangohost.net/blog/wp-content/uploads/2024/02/word-image.webp)
+
+Open **Terminal** in Kali and type:
+
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
 
-### 2️⃣ Total Profit
+Install extra tools:
 
-```DAX
-Total Profit = SUM(Financials[Profit])
+```bash
+sudo apt install net-tools -y
 ```
 
-### 3️⃣ Total Units Sold
+Enable SSH:
 
-```DAX
-Total Units Sold = SUM(Financials[Units Sold])
+```bash
+sudo systemctl enable ssh
+sudo systemctl start ssh
 ```
 
-> 💡 **Viva line:**
-> “Measures are dynamic calculations created using DAX.”
+---
+
+## STEP 6️⃣: Network Setup (Important for Exam)
+
+![Image](https://condor.depaul.edu/glancast/443class/docs/images/vbox_network_adapter.jpg)
+
+![Image](https://www.nakivo.com/blog/wp-content/uploads/2019/07/VirtualBox-Network-Settings-for-Adapter-1.png)
+
+![Image](https://www.nakivo.com/blog/wp-content/uploads/2019/07/Global-VirtualBox-network-settings-%E2%80%93-editing-the-settings-of-the-NAT-Network.webp)
+
+Go to **VirtualBox → Settings → Network**
+
+### Choose ONE:
+
+* **NAT** → Internet access
+* **Host-Only Adapter** → Safe isolated lab (recommended)
+
+💡 For practical exam, **Host-Only Adapter** sounds best.
 
 ---
 
-## 🟢 STEP 4: Create Charts (Visualizations)
+## STEP 7️⃣: Test the Lab (Proof It Works)
 
-### 📊 Chart 1: Sales by Country (Bar Chart)
+Open Kali Terminal:
 
-1. Select **Clustered Bar Chart**
-2. **Axis** → Country
-3. **Values** → Total Sales
-4. Title → *Sales by Country*
+```bash
+ip a
+```
 
----
+Note your IP address.
 
-### 📊 Chart 2: Profit by Product (Column Chart)
+Now test **Nmap** (already installed):
 
-1. Select **Clustered Column Chart**
-2. **Axis** → Product
-3. **Values** → Total Profit
-4. Title → *Profit by Product*
+```bash
+nmap -sV localhost
+```
 
----
-
-### 📈 Chart 3: Monthly Sales Trend (Line Chart)
-
-1. Select **Line Chart**
-2. **X-axis** → Month
-3. **Values** → Total Sales
-4. Title → *Monthly Sales Trend*
+If ports/services appear → ✅ **Lab is working**
 
 ---
 
-### 🥧 Chart 4: Sales Distribution by Segment (Pie Chart)
+## ✍️ What to Write in Practical File (Exam-Ready)
 
-1. Select **Pie Chart**
-2. **Legend** → Segment
-3. **Values** → Total Sales
-4. Title → *Sales Distribution by Segment*
+**Result:**
 
----
-
-### 🍩 Chart 5: Sales & Units Sold by Country (Donut Chart)
-
-1. Select **Donut Chart**
-2. **Legend** → Country
-3. **Values** → Total Sales, Total Units Sold
-4. Title → *Sales and Units Sold by Country*
-
-> 💡 **Viva tip:**
-> “Different charts are used for comparison, trend analysis, and distribution.”
+> Kali Linux penetration testing lab was successfully installed and configured using VirtualBox on Windows OS.
 
 ---
 
-## 🟢 STEP 5: Add KPI Cards
+## ✅ You’re DONE with Practical No. 1 🎉
 
-### 🟦 Card 1: Total Sales
+If you want, next we can:
 
-* Select **Card**
-* Field → Total Sales
+* ➡️ **Practical No. 2 (Only Windows commands – very easy)**
+* ➡️ Viva questions for Practical 1
+* ➡️ Common errors & screenshots checklist
 
-### 🟦 Card 2: Total Profit
-
-* Select **Card**
-* Field → Total Profit
-
-### 🟦 Card 3: Total Units Sold
-
-* Select **Card**
-* Field → Total Units Sold
-
-> 💡 **Viva line:**
-> “Cards are used to show key performance indicators.”
-
----
-
-## 🟢 STEP 6: Add Slicers (Filters)
-
-### 🎛 Year Filter
-
-1. Select **Slicer**
-2. Field → Year
-
-### 🎛 Country Filter
-
-1. Select **Slicer**
-2. Field → Country
-
-✅ These filters affect **all charts together**
-
-> 💡 **Viva question:** *What is a slicer?*
-> ✔️ “Slicer is an interactive filter used to filter report data.”
-
----
-
-## 🟢 STEP 7: Format the Report
-
-1. Align visuals properly
-2. Go to **View → Themes**
-3. Add report title:
-
-### 📝 **Financial Performance Dashboard**
-
----
-
-## ✅ FINAL OUTPUT
-
-✔ Dashboard with charts
-✔ KPI cards
-✔ Filters (Year & Country)
-✔ Professional layout
-
----
-
-## 🎯 ONE-LINE VIVA SUMMARY
-
-> “In Practical 1, we created a Financial Performance Dashboard in Power BI using sample data, DAX measures, charts, KPI cards, and slicers.”
-
----
-
-If you want, next I can:
-
-* 🗣️ Do **viva Q&A practice**
-* 📸 Show **what your final dashboard should look like**
-* ➡️ Start **Practical No. 2 step-by-step**
-
-Just say **“next”** 😊
+Just say: **“Next practical”** 😄

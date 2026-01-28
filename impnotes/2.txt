@@ -1,216 +1,174 @@
-Perfect 👍 Let’s move to **Practical No. 2** — and don’t worry, I’ll explain it **slowly + in simple words**, exactly how examiners expect.
-
-Everything below is from your **Practical 2** section .
-
----
-
-# 🧪 PRACTICAL NO. 2 – Power BI (Time Intelligence & DAX)
-
-## 🎯 Aim
-
-👉 *Analyze monthly sales, compare with last year, and calculate YTD sales using DAX.*
+Alright Sagar 👍
+**Practical No. 2** is **easy + fully Windows-based** — no Kali stress here 😄
+We’ll do it **step-by-step**, exactly how your examiner expects.
 
 ---
 
-## 🟢 STEP 1: Create Sample Data (Sales Table)
+## 🧪 Practical No. 2
 
-1. Open **Power BI Desktop**
-2. Go to **Home → Enter Data**
-3. Create a table like this:
-
-| OrderDate  | Region | Product | SalesAmount |
-| ---------- | ------ | ------- | ----------- |
-| 2023-01-05 | North  | Laptop  | 50000       |
-| 2023-02-10 | North  | Mobile  | 30000       |
-| 2023-03-15 | South  | Laptop  | 45000       |
-| 2023-04-18 | East   | Tablet  | 20000       |
-| 2023-05-22 | West   | Laptop  | 60000       |
-| 2024-01-08 | North  | Laptop  | 55000       |
-| 2024-02-14 | South  | Mobile  | 35000       |
-| 2024-03-19 | East   | Laptop  | 48000       |
-| 2024-04-25 | West   | Tablet  | 25000       |
-| 2024-05-30 | North  | Mobile  | 40000       |
-
-4. Name the table **Sales**
-5. Click **Load**
-
-> 💡 Viva line:
-> “We created a custom Sales table using Enter Data.”
+### **Use of Open-Source Intelligence (OSINT) & Passive Reconnaissance**
 
 ---
 
-## 🟢 STEP 2: Create a Date Table (VERY IMPORTANT)
+## ✅ Aim
 
-👉 Time Intelligence **will NOT work without a Date Table**
+To perform **passive reconnaissance** using **Windows command-line utilities**.
 
-Go to:
-**Modeling → New Table**
+> 🔍 *Passive reconnaissance* = collecting information **without attacking** the target.
 
-Paste this 👇
+---
 
-```DAX
-DateTable =
-ADDCOLUMNS(
-    CALENDAR (DATE(2023,1,1), DATE(2024,12,31)),
-    "Year", YEAR([Date]),
-    "Month", FORMAT([Date], "MMM"),
-    "MonthNo", MONTH([Date])
-)
+## 🛠 Tools Used (Windows)
+
+* **Command Prompt (CMD)**
+* Commands:
+
+  * `ping`
+  * `tracert`
+  * `nslookup`
+
+*(As per your practical PDF)* 
+
+---
+
+## STEP 1️⃣: Open Command Prompt
+
+![Image](https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2023/08/52881909218_15f72bb07c_o.jpg)
+
+![Image](https://www.ionos.ca/digitalguide/fileadmin/DigitalGuide/Screenshots_2019/ping-befehl-EN-4.jpg)
+
+![Image](https://support.n4l.co.nz/servlet/rtaImage?eid=ka7Mo000000HIbd\&feoid=00N9000000EwOP7\&refid=0EM90000000rYyd)
+
+![Image](https://www.lifewire.com/thmb/BNyz7EgRJw6h21U4hg388z9bkFM%3D/1500x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29/tracert-command-51d73acf91b5468fbbec76d21719ea22.png)
+
+1. Press **Windows + R**
+2. Type `cmd`
+3. Press **Enter**
+
+---
+
+## STEP 2️⃣: Ping Command (Basic Reachability)
+
+### Command:
+
+```cmd
+ping www.certifiedhacker.com
 ```
 
-Press **Enter** ✅
+### Purpose:
+
+* Checks whether the website is **reachable**
+* Shows **response time** and **packet loss**
 
 ---
 
-## 🟢 STEP 3: Mark Date Table
+## STEP 3️⃣: Ping with Packet Size (MTU Discovery)
 
-1. Click **DateTable**
-2. Go to **Table tools**
-3. Click **Mark as Date Table**
-4. Select **Date**
+### Command:
 
-> 💡 Viva question: *Why do we mark date table?*
-> ✔️ “To enable time intelligence calculations.”
-
----
-
-## 🟢 STEP 4: Create Relationship
-
-1. Go to **Model View**
-2. Connect:
-
-```
-Sales[OrderDate]  →  DateTable[Date]
+```cmd
+ping www.certifiedhacker.com -f -l 1500
 ```
 
-> 💡 Viva line:
-> “Relationship connects fact table with date table.”
+If it fails, try smaller sizes:
 
----
-
-## 🟢 STEP 5: Create DAX Measures (One by One)
-
-### 1️⃣ Total Sales
-
-**Modeling → New Measure**
-
-```DAX
-Total Sales = SUM(Sales[SalesAmount])
+```cmd
+ping www.certifiedhacker.com -f -l 1473
+ping www.certifiedhacker.com -f -l 1472
 ```
 
+### Explanation:
+
+* `-f` → Do not fragment packet
+* `-l` → Packet size
+* Used to find **maximum transmission unit (MTU)**
+
 ---
 
-### 2️⃣ Sales Year-To-Date (YTD)
+## STEP 4️⃣: Ping with TTL (Time To Live)
 
-```DAX
-Sales YTD =
-TOTALYTD(
-    [Total Sales],
-    DateTable[Date]
-)
+### Commands:
+
+```cmd
+ping www.certifiedhacker.com -i 2 -n 1
+ping www.certifiedhacker.com -i 4 -n 1
+ping www.certifiedhacker.com -i 15 -n 1
 ```
 
-👉 Shows cumulative sales from Jan to current date.
+### Explanation:
+
+* `-i` → TTL value
+* `-n 1` → Send only one packet
+* Helps estimate **hop distance**
 
 ---
 
-### 3️⃣ Sales Last Year
+## STEP 5️⃣: Traceroute (Network Path Discovery)
 
-```DAX
-Sales Last Year =
-CALCULATE(
-    [Total Sales],
-    SAMEPERIODLASTYEAR(DateTable[Date])
-)
+### Command:
+
+```cmd
+tracert www.certifiedhacker.com
 ```
 
-👉 Compares with previous year.
+### Purpose:
+
+* Shows **route taken** by packets
+* Displays **routers (hops)** between you and target
 
 ---
 
-### 4️⃣ Year-over-Year Growth %
+## STEP 6️⃣: DNS Information Gathering
 
-```DAX
-YoY Growth % =
-DIVIDE(
-    [Total Sales] - [Sales Last Year],
-    [Sales Last Year],
-    0
-)
+### Command:
+
+```cmd
+nslookup www.certifiedhacker.com
 ```
 
----
+### Purpose:
 
-### 5️⃣ Previous Month Sales
-
-```DAX
-Previous Month Sales =
-CALCULATE(
-    [Total Sales],
-    DATEADD(DateTable[Date], -1, MONTH)
-)
-```
+* Finds **IP address**
+* Shows **DNS server details**
+* Used in OSINT investigations
 
 ---
 
-## 🟢 STEP 6: Create Visuals
+## 📌 Observation (What You’ll See)
 
-### 🔹 KPI Cards
-
-Create **Cards** for:
-
-* Total Sales
-* Sales Last Year
-* Sales YTD
-* YoY Growth %
-* Previous Month Sales
+* IP address of the website
+* Response time
+* Hop count
+* DNS records
 
 ---
 
-### 🔹 Line Chart (Monthly Comparison)
+## ✍️ Write This in Your Practical File (IMPORTANT)
 
-* X-axis → Month
-* Values → Total Sales, Sales Last Year
+### **Aim:**
 
----
+To perform passive reconnaissance using Windows command-line tools.
 
-### 🔹 Area / Column Chart
+### **Procedure:**
 
-* Product → Axis
-* Sales YTD → Values
+1. Opened Command Prompt in Windows OS.
+2. Used `ping` command to check reachability of the target.
+3. Used `ping` with packet size and TTL options for network analysis.
+4. Used `tracert` to identify network path.
+5. Used `nslookup` to obtain DNS and IP details.
 
----
+### **Result:**
 
-## 🗣️ MOST IMPORTANT VIVA QUESTIONS
-
-### Q1: What is Time Intelligence?
-
-✔ Calculations based on time (YTD, YoY, Previous Month)
-
-### Q2: Why Date Table is mandatory?
-
-✔ Time intelligence works only with a marked date table
-
-### Q3: What does YTD mean?
-
-✔ Sales from beginning of year till today
-
-### Q4: SAMEPERIODLASTYEAR does what?
-
-✔ Fetches sales from same period of previous year
+Passive reconnaissance of the target website was successfully performed using Windows command-line utilities.
 
 ---
 
-## 🧠 ONE-LINE PRACTICAL SUMMARY (EXAM READY)
+## ✅ Practical No. 2 DONE 💯
 
-> “In Practical 2, we used DAX time intelligence functions to analyze YTD, YoY, and previous period sales using a date table.”
+Next options:
 
----
+* 👉 **Practical No. 3 (Zenmap / GUI-based – very scoring)**
+* 👉 **Viva questions for Practical 2**
+* 👉 **Common mistakes examiners cut marks for**
 
-Next options for you:
-
-* 🗣️ **Full Practical 2 viva Q&A**
-* 🔍 **Debug errors if DAX fails**
-* ➡️ **Move to Practical No. 3**
-
-Just say **next** 😊
+Just say **“Practical 3”** or tell me what you want 😄

@@ -1,0 +1,194 @@
+Perfect 👍 let’s continue smoothly.
+
+---
+
+## 🧪 Practical No. 6
+
+### **Exploiting Web-Based Applications using ZAP Proxy**
+
+---
+
+## ✅ Aim
+
+To analyze and identify **web application vulnerabilities** using **OWASP ZAP (Zed Attack Proxy)**.
+
+
+
+---
+
+## 🛠 Tool Used
+
+* **OWASP ZAP (ZAP Proxy)**
+* Operating System: **Kali Linux**
+
+---
+
+## STEP 1️⃣: Start Kali Linux
+
+1. Open **VirtualBox**
+2. Start **Kali Linux**
+3. Login with your credentials
+
+---
+
+## STEP 2️⃣: Install ZAP Proxy (If not installed)
+
+![Image](https://www.kali.org/tools/zaproxy/images/zaproxy.png)
+
+![Image](https://user-images.githubusercontent.com/42872580/65149194-8f9d5080-da19-11e9-9456-2418c9cefb00.jpg)
+
+Open **Terminal** and run:
+
+```bash
+sudo apt update
+sudo apt install zaproxy -y
+```
+
+After installation, start ZAP:
+
+```bash
+zaproxy
+```
+
+---
+
+## STEP 3️⃣: Configure Java (Important step in exam)
+
+If prompted, run:
+
+```bash
+update-alternatives --config java
+```
+
+* Select the **default Java option**
+* Press **Enter**
+
+---
+
+## STEP 4️⃣: Open ZAP Dashboard
+
+![Image](https://devopedia.org/images/article/72/2450.1523863706.jpg)
+
+![Image](https://www.zaproxy.org/img/docs/docker/ZAP-webswing.png)
+
+![Image](https://ultahost.com/knowledge-base/wp-content/uploads/2024/05/19.png)
+
+* ZAP GUI will open
+* Click **“No, I do not want to persist this session”**
+* Click **Start**
+
+---
+
+## STEP 5️⃣: Open Target Website in Firefox
+
+![Image](https://www.zaproxy.org/blog/2021-11-26-launching-browsers-with-extensions/images/selenium-options.png)
+
+![Image](https://www.zaproxy.org/getting-started/images/firefox-protection-hud.png)
+
+![Image](https://www.zaproxy.org/getting-started/images/zap-full-screen.png)
+
+1. Open **Firefox** (inside Kali)
+2. Visit:
+
+```
+http://www.certifiedhacker.com
+```
+
+👉 ZAP automatically intercepts traffic from Firefox.
+
+---
+
+## STEP 6️⃣: Spider Scan (Crawling)
+
+![Image](https://groups.google.com/group/zaproxy-users/attach/1c3ea4521869a/Picture1.png?part=0.4\&view=1)
+
+![Image](https://i.sstatic.net/BgeWG.png)
+
+![Image](https://www.zaproxy.org/docs/api/images/zap_desktop_api.png)
+
+1. In ZAP → click **+**
+2. Select **Spider**
+3. Enter target URL
+4. Click **Start Scan**
+
+ZAP crawls all pages and links.
+
+---
+
+## STEP 7️⃣: View Alerts & Vulnerabilities
+
+![Image](https://www.zaproxy.org/blog/2021-08-23-retest-with-zap/images/dialog.png)
+
+![Image](https://www.zaproxy.org/docs/desktop/addons/report-generation/images/report-traditional-pdf.png)
+
+* Go to **Alerts tab**
+* Vulnerabilities shown with:
+
+  * Risk level (High / Medium / Low)
+  * Description
+  * Solution
+
+---
+
+## STEP 8️⃣: Generate Report (Optional but Scoring)
+
+* Go to **Report → Generate HTML Report**
+* Save report
+
+---
+
+## 📌 Observation
+
+* Web application scanned successfully
+* Vulnerabilities detected
+* Security alerts generated
+
+---
+
+## ✍️ Write This in Practical File (EXAM-READY)
+
+### **Aim:**
+
+To detect vulnerabilities in web applications using ZAP Proxy.
+
+### **Tool Used:**
+
+OWASP ZAP
+
+### **Procedure:**
+
+1. Started Kali Linux virtual machine.
+2. Installed and launched ZAP Proxy.
+3. Configured Java environment.
+4. Opened target website in Firefox through ZAP.
+5. Performed spider scan.
+6. Analyzed security alerts and vulnerabilities.
+
+### **Result:**
+
+Web application vulnerabilities were successfully identified using ZAP Proxy.
+
+---
+
+## 🔥 Viva-Ready Short Q&A
+
+**Q. What is ZAP Proxy?**
+👉 An open-source web application security testing tool.
+
+**Q. What is Spider Scan?**
+👉 Automated crawling of web pages to discover URLs.
+
+**Q. What type of vulnerabilities does ZAP find?**
+👉 XSS, insecure headers, cookies issues, misconfigurations.
+
+---
+
+## ✅ Practical No. 6 DONE 💯
+
+Next options:
+
+* 👉 **Practical No. 7 (Metasploit Framework)**
+* 👉 **Only viva questions**
+* 👉 **Full exam-ready revision**
+
+Just say **“Practical 7”** 🚀

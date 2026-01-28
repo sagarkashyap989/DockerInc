@@ -1,0 +1,157 @@
+Nice 👍 **Practical No. 8** is **short, easy, and very theory-friendly**.
+We’ll do it **step-by-step**, exactly how it appears in your practical manual.
+
+---
+
+## 🧪 Practical No. 8
+
+### **Injecting Code in Data-Driven Applications (SQL Injection)**
+
+---
+
+## ✅ Aim
+
+To demonstrate **SQL Injection** in a **web-based application**.
+
+
+
+---
+
+## 🛠 Tools / Requirements
+
+* **Web Browser (Chrome / Firefox)**
+* **Vulnerable demo website**
+* OS: **Windows or Kali Linux**
+
+---
+
+## 🔍 What is SQL Injection? (1-line for exam)
+
+SQL Injection is a technique where **malicious SQL code** is inserted into input fields to **bypass authentication** or manipulate the database.
+
+---
+
+## STEP 1️⃣: Open Browser
+
+![Image](https://groups.google.com/group/zaproxy-users/attach/14e10a0513962/Auto%20Generated%20Inline%20Image%202?part=0.2\&view=1)
+
+![Image](https://portswigger.net/support/images/owasp_injection_12.png)
+
+![Image](https://www.vaadata.com/blog/wp-content/uploads/2017/09/login-vuln-1-EN-1024x749.png)
+
+Open **Chrome / Firefox** and go to:
+
+```
+http://testfire.net
+```
+
+---
+
+## STEP 2️⃣: Go to Login Page
+
+1. Click **Online Banking Login**
+2. You’ll see **Username** and **Password** fields
+
+---
+
+## STEP 3️⃣: Normal Login Attempt (Fails)
+
+Enter:
+
+* **Username:** test
+* **Password:** test
+
+Click **Login**
+
+👉 Output: **Access Denied**
+
+(This shows normal authentication is working)
+
+---
+
+## STEP 4️⃣: Perform SQL Injection
+
+Now enter:
+
+### Username:
+
+```sql
+' OR 1=1 --
+```
+
+### Password:
+
+```text
+anything
+```
+
+Click **Login**
+
+---
+
+## 🎯 What Happened?
+
+* `' OR 1=1 --` makes the SQL condition **always TRUE**
+* `--` comments out the rest of the query
+* Authentication is **bypassed**
+
+✅ You get **access to the portal**
+
+---
+
+## 📌 Observation
+
+* Login bypassed without valid credentials
+* Application vulnerable to SQL Injection
+* Database query logic manipulated
+
+---
+
+## ✍️ Write This in Practical File (EXAM-READY)
+
+### **Aim:**
+
+To demonstrate SQL Injection in a data-driven web application.
+
+### **Procedure:**
+
+1. Opened a web browser.
+2. Accessed vulnerable website login page.
+3. Entered invalid credentials and observed access denied.
+4. Injected SQL code into username field.
+5. Successfully bypassed authentication.
+
+### **Result:**
+
+SQL Injection attack was successfully performed on a vulnerable web application.
+
+---
+
+## 🔥 Viva-Ready Short Q&A
+
+**Q. What is SQL Injection?**
+👉 Inserting malicious SQL queries to manipulate database operations.
+
+**Q. Why does `' OR 1=1 --` work?**
+👉 Because `1=1` is always true and `--` comments remaining query.
+
+**Q. Which layer is affected in SQL Injection?**
+👉 Database layer.
+
+**Q. How can SQL Injection be prevented?**
+👉 Prepared statements, input validation, parameterized queries.
+
+---
+
+## ✅ Practical No. 8 COMPLETED 💯
+
+### You’re DONE with **ALL PRACTICALS** 🎉👏
+
+Now I can help you with:
+
+* 📘 **Full viva revision (all practicals)**
+* 📝 **One-page cheat sheet**
+* 📸 **Screenshot checklist for submission**
+* 😌 **Last-day exam confidence prep**
+
+Just tell me what you want next 😄

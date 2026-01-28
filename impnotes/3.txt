@@ -1,170 +1,186 @@
-Nice, Sagar 😄
-**Practical No. 3** is actually **easy + scoring**, because it’s more about *using Power BI Service* than heavy DAX.
-
-Let’s do it **cleanly, step-by-step**, exactly how your examiner expects.
+Nice 👍 **Practical No. 3** is very scoring and **mostly GUI-based**, so don’t worry.
+We’ll do it **slow + exam-oriented**, assuming you’re new to Kali/Linux.
 
 ---
 
-# 🧪 PRACTICAL NO. 3 – Power BI
+## 🧪 Practical No. 3
 
-## 📌 Operations on Pinned Reports and Visuals
-
-### 🎯 Aim
-
-👉 *To pin visuals from a report to a dashboard and perform operations on them.*
+### **Enumerating Host, Port, and Service Scanning**
 
 ---
 
-## 🟢 STEP 1: Create Sample Data
+## ✅ Aim
 
-1. Open **Power BI Desktop**
-2. Click **Home → Enter Data**
-3. Enter this table:
+To perform **host discovery**, **port scanning**, and **service enumeration** using **Zenmap (Nmap GUI)**.
 
-| Product | Sales |
-| ------- | ----- |
-| Laptop  | 45000 |
-| Mobile  | 32000 |
-| Tablet  | 18000 |
-
-4. Name the table: **SalesData**
-5. Click **Load**
-
-> 💡 Viva line:
-> “We created a simple dataset using Enter Data.”
+*(As mentioned in your practical manual)* 
 
 ---
 
-## 🟢 STEP 2: Create a Report Visual
+## 🛠 Tool Used
 
-1. Go to **Report View**
-2. Select **Clustered Column Chart**
-3. Drag:
-
-   * **Product → Axis**
-   * **Sales → Values**
-4. Rename the report:
-
-   * **Sales Report**
-
-You now have a basic report 📊
+* **Zenmap** (Graphical User Interface of Nmap)
+* Operating System: **Kali Linux**
 
 ---
 
-## 🟢 STEP 3: Publish the Report (IMPORTANT)
+## STEP 1️⃣: Start Kali Linux
 
-1. Click **Home → Publish**
-2. Sign in with your **Power BI account**
-3. Choose **My Workspace**
-4. Wait for **Publish successful** message
-
-✅ Your report is now online in **Power BI Service**
+* Open **VirtualBox**
+* Start **Kali Linux**
+* Login with your username & password
 
 ---
 
-## 🟢 STEP 4: Pin Visual to Dashboard (Core of Practical 3)
+## STEP 2️⃣: Open Zenmap (Very Easy)
 
-1. Open browser → go to **app.powerbi.com**
-2. Open **My Workspace**
-3. Click **Sales Report**
-4. Hover over the chart
-5. Click **📌 Pin visual**
-6. Choose **New Dashboard**
-7. Name it: **Sales Dashboard**
-8. Click **Pin**
+![Image](https://media.licdn.com/dms/image/v2/D4D12AQG3br_cev2q2g/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1727248964293?e=2147483647\&t=V-_BvANsEd1-YsmVMQtUHrKEx0FthQHOwEuafDdWPws\&v=beta)
 
-🎉 Visual is now pinned!
+![Image](https://www.linux.com/images/stories/zenmap.png)
 
-![Image](https://community.fabric.microsoft.com/t5/image/serverpage/image-id/815681i6122C27A4F12AA0F?v=v2)
+![Image](https://nmap.org/zenmap/images/zenmap-no-648x700.png)
 
-![Image](https://backtosql.wordpress.com/wp-content/uploads/2018/04/no-refresh.gif)
+![Image](https://infosecscout.com/wp-content/uploads/2024/02/zenmap-default-interface.jpg)
 
-![Image](https://learn.microsoft.com/en-us/power-bi/visuals/media/power-bi-visualization-q-and-a/power-bi-service-pin-visual.png)
+### Steps:
 
----
+1. Click **Kali Menu (top-left)**
+2. Search **Zenmap**
+3. Click **Zenmap**
+4. Enter **Kali password** (required)
 
-## 🟢 STEP 5: View Pinned Visual
-
-1. Open **Sales Dashboard**
-2. You’ll see the chart as a **tile**
-3. Click the tile → it opens the **original report**
-
-> 💡 Viva line:
-> “Pinned visuals act as live tiles linked to reports.”
+Zenmap window will open ✅
 
 ---
 
-## 🟢 STEP 6: Edit Pinned Visual (Tile Operations)
+## STEP 3️⃣: Identify Target IP Address
 
-1. Open **Sales Dashboard**
-2. Click **Edit**
-3. Select the tile
-4. You can:
+Open **Terminal** and type:
 
-   * Change **Tile title**
-   * **Resize** the tile
-   * **Move** it (drag & drop)
-5. Click **Save**
+```bash
+ip a
+```
 
----
+* Note your **IP address**
+* Example: `192.168.1.10`
 
-## 🟢 STEP 7: Remove (Unpin) Visual
+For practice, you can also use:
 
-1. Hover over the tile
-2. Click **⋮ (three dots)**
-3. Select **Remove tile**
+```text
+scanme.nmap.org
+```
 
-❗ This removes it **only from dashboard**, not from report.
+*(Official Nmap test server – safe & allowed)*
 
 ---
 
-## 🧠 IMPORTANT CONCEPTS (Viva Ready)
+## STEP 4️⃣: Perform Scanning Using Zenmap
 
-### 🔹 What is a Dashboard?
+### 🔹 Basic Scan (Quick)
 
-✔ A single-page view containing pinned visuals
-
-### 🔹 What is a Pinned Visual?
-
-✔ A visual copied from a report to a dashboard
-
-### 🔹 Does deleting a tile delete report?
-
-✔ ❌ No
+* **Target:** `scanme.nmap.org`
+* **Profile:** Intense Scan
+* Click **Scan**
 
 ---
 
-## 🗣️ MOST EXPECTED VIVA QUESTIONS
+### 🔹 What Zenmap Does (Important for Viva)
 
-### Q1: Difference between Report and Dashboard?
-
-✔ Report → multi-page
-✔ Dashboard → single page
-
-### Q2: What is pinning?
-
-✔ Adding report visuals to dashboard
-
-### Q3: Where do dashboards exist?
-
-✔ Power BI Service only
-
-### Q4: Can dashboards be created in Desktop?
-
-✔ ❌ No
+* Detects **live host**
+* Scans **open ports**
+* Identifies **running services**
+* Detects **OS & versions**
 
 ---
 
-## 🧠 ONE-LINE PRACTICAL SUMMARY
+## STEP 5️⃣: Understanding Output Tabs
 
-> “In Practical 3, we published a report, pinned visuals to a dashboard, and performed tile operations in Power BI Service.”
+![Image](https://nmap.org/book/images/zenmap-fig-tab-nmap-output.png)
+
+![Image](https://nmap.org/book/images/zenmap-fig-tab-topology.png)
+
+![Image](https://nmap.org/zenmap/images/zenmap-no-648x700.png)
+
+### 1️⃣ Nmap Output
+
+* Raw scan results
+* Open ports like `22`, `80`, `443`
+
+### 2️⃣ Ports / Hosts
+
+* Clean table view
+* Shows **Port | Protocol | State | Service**
+
+### 3️⃣ Topology
+
+* Graphical network structure
+
+### 4️⃣ Host Details
+
+* OS detection
+* MAC address
+* Latency
 
 ---
 
-If you want, next we can:
+## STEP 6️⃣: Types of Scans (Mention in Exam)
 
-* 🗣️ Do **full viva mock for Practical 3**
-* ➡️ Move to **Practical No. 4 (Pandas – very easy)**
-* ❌ Fix **publish / login issues**
+You can select different profiles:
 
-Just say **next** 👍
+* **Quick Scan**
+* **Intense Scan**
+* **Intense Scan + UDP**
+* **Ping Scan**
+* **Regular Scan**
+
+👉 Examiner loves when you mention **profiles**
+
+---
+
+## ✍️ Write This in Practical File (COPY-PASTE STYLE)
+
+### **Aim:**
+
+To enumerate host, open ports, and running services using Zenmap.
+
+### **Tool Used:**
+
+Zenmap (GUI version of Nmap)
+
+### **Procedure:**
+
+1. Started Kali Linux virtual machine.
+2. Opened Zenmap from Kali menu.
+3. Entered target IP/domain name.
+4. Selected scanning profile.
+5. Performed scan and analyzed output.
+
+### **Result:**
+
+Host discovery, port scanning, and service enumeration were successfully performed using Zenmap.
+
+---
+
+## 🔥 Viva-Ready Short Answers
+
+**Q. What is Zenmap?**
+👉 Zenmap is the graphical user interface of Nmap.
+
+**Q. What is port scanning?**
+👉 Process of identifying open ports on a target system.
+
+**Q. Difference between Nmap & Zenmap?**
+👉 Nmap is CLI, Zenmap is GUI.
+
+---
+
+## ✅ Practical No. 3 COMPLETED 💯
+
+Next?
+
+* 👉 **Practical No. 4 (Vulnerability Scanning – Nmap + Nikto)**
+* 👉 **Viva questions only**
+* 👉 **Screenshot checklist for exam submission**
+
+Just say **“Practical 4”** 😄
+3
