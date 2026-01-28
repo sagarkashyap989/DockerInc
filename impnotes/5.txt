@@ -1,0 +1,194 @@
+Perfect 👍 **Practical No. 5** is **Pandas (Python)** and it’s **very scoring** if you write it cleanly.
+
+I’ll explain **what to type, what it does, and what to say in viva** — slowly.
+
+---
+
+# 🧪 PRACTICAL NO. 5 – Pandas
+
+## 📊 Reshaping Hierarchical Data & Pivoting DataFrame
+
+### 🎯 **Aim**
+
+👉 *To perform reshaping operations using stack/unstack and pivoting using pivot and pivot_table.*
+
+---
+
+## 🟢 PART A: Hierarchical Data (MultiIndex)
+
+### 🔹 STEP 1: Import Pandas
+
+```python
+import pandas as pd
+```
+
+---
+
+### 🔹 STEP 2: Create Hierarchical (MultiIndex) Data
+
+```python
+data = {
+    "Sales": [25000, 30000, 20000, 28000]
+}
+
+index = pd.MultiIndex.from_tuples(
+    [
+        ("North", "Laptop"),
+        ("North", "Mobile"),
+        ("South", "Laptop"),
+        ("South", "Mobile")
+    ],
+    names=["Region", "Product"]
+)
+
+df = pd.DataFrame(data, index=index)
+print(df)
+```
+
+### 🔍 Output
+
+```
+Sales
+Region Product
+North  Laptop   25000
+       Mobile   30000
+South  Laptop   20000
+       Mobile   28000
+```
+
+> 💡 **Viva line:**
+> “MultiIndex allows multiple levels of indexing.”
+
+---
+
+## 🟢 STEP 3: Unstack (Rows → Columns)
+
+```python
+unstacked_df = df.unstack()
+print(unstacked_df)
+```
+
+### 🧠 What happens?
+
+* **Product** moves from rows → columns
+
+> 💡 Viva: *What does unstack do?*
+> ✔ Converts inner index into columns
+
+---
+
+## 🟢 STEP 4: Stack (Columns → Rows)
+
+```python
+stacked_df = unstacked_df.stack()
+print(stacked_df)
+```
+
+### 🧠 What happens?
+
+* Restores original structure
+
+> 💡 Viva line:
+> “Stack reverses the unstack operation.”
+
+---
+
+# 🟢 PART B: Pivoting DataFrame
+
+---
+
+## 🔹 STEP 5: Create Normal DataFrame
+
+```python
+data = {
+    "Region": ["North", "North", "South", "South"],
+    "Product": ["Laptop", "Mobile", "Laptop", "Mobile"],
+    "Sales": [25000, 30000, 20000, 28000]
+}
+
+df2 = pd.DataFrame(data)
+print(df2)
+```
+
+---
+
+## 🟢 STEP 6: Pivot the DataFrame
+
+```python
+pivot_df = df2.pivot(
+    index="Region",
+    columns="Product",
+    values="Sales"
+)
+print(pivot_df)
+```
+
+### 🔍 Output
+
+```
+Product  Laptop  Mobile
+Region
+North     25000   30000
+South     20000   28000
+```
+
+> 💡 **Important:**
+> `pivot()` works only when **no duplicate values** exist.
+
+---
+
+## 🟢 STEP 7: Pivot Table (Aggregation)
+
+```python
+pivot_table_df = pd.pivot_table(
+    df2,
+    index="Region",
+    columns="Product",
+    values="Sales",
+    aggfunc="sum"
+)
+print(pivot_table_df)
+```
+
+> 💡 Viva line:
+> “pivot_table handles duplicate values using aggregation.”
+
+---
+
+## 🧠 MOST IMPORTANT VIVA QUESTIONS
+
+### Q1: What is MultiIndex?
+
+✔ Index with multiple levels
+
+### Q2: Difference between stack and unstack?
+
+✔ stack → columns to rows
+✔ unstack → rows to columns
+
+### Q3: Difference between pivot and pivot_table?
+
+✔ pivot → no duplicates
+✔ pivot_table → supports aggregation
+
+### Q4: When do we use pivot_table?
+
+✔ When duplicate values exist
+
+---
+
+## 🧠 ONE-LINE PRACTICAL SUMMARY (WRITE THIS)
+
+> “In Practical 5, we created hierarchical data using MultiIndex, reshaped it using stack and unstack, and performed pivoting using pivot and pivot_table.”
+
+---
+
+### ✅ Practical 5 DONE
+
+If you want next:
+
+* 🗣️ **Only viva Q&A (quick revision)**
+* 📝 **How to write this in exam answer format**
+* ❌ **Common mistakes teachers cut marks for**
+
+Just tell me 😊

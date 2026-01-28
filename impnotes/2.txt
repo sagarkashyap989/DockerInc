@@ -1,0 +1,216 @@
+Perfect 👍 Let’s move to **Practical No. 2** — and don’t worry, I’ll explain it **slowly + in simple words**, exactly how examiners expect.
+
+Everything below is from your **Practical 2** section .
+
+---
+
+# 🧪 PRACTICAL NO. 2 – Power BI (Time Intelligence & DAX)
+
+## 🎯 Aim
+
+👉 *Analyze monthly sales, compare with last year, and calculate YTD sales using DAX.*
+
+---
+
+## 🟢 STEP 1: Create Sample Data (Sales Table)
+
+1. Open **Power BI Desktop**
+2. Go to **Home → Enter Data**
+3. Create a table like this:
+
+| OrderDate  | Region | Product | SalesAmount |
+| ---------- | ------ | ------- | ----------- |
+| 2023-01-05 | North  | Laptop  | 50000       |
+| 2023-02-10 | North  | Mobile  | 30000       |
+| 2023-03-15 | South  | Laptop  | 45000       |
+| 2023-04-18 | East   | Tablet  | 20000       |
+| 2023-05-22 | West   | Laptop  | 60000       |
+| 2024-01-08 | North  | Laptop  | 55000       |
+| 2024-02-14 | South  | Mobile  | 35000       |
+| 2024-03-19 | East   | Laptop  | 48000       |
+| 2024-04-25 | West   | Tablet  | 25000       |
+| 2024-05-30 | North  | Mobile  | 40000       |
+
+4. Name the table **Sales**
+5. Click **Load**
+
+> 💡 Viva line:
+> “We created a custom Sales table using Enter Data.”
+
+---
+
+## 🟢 STEP 2: Create a Date Table (VERY IMPORTANT)
+
+👉 Time Intelligence **will NOT work without a Date Table**
+
+Go to:
+**Modeling → New Table**
+
+Paste this 👇
+
+```DAX
+DateTable =
+ADDCOLUMNS(
+    CALENDAR (DATE(2023,1,1), DATE(2024,12,31)),
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "MMM"),
+    "MonthNo", MONTH([Date])
+)
+```
+
+Press **Enter** ✅
+
+---
+
+## 🟢 STEP 3: Mark Date Table
+
+1. Click **DateTable**
+2. Go to **Table tools**
+3. Click **Mark as Date Table**
+4. Select **Date**
+
+> 💡 Viva question: *Why do we mark date table?*
+> ✔️ “To enable time intelligence calculations.”
+
+---
+
+## 🟢 STEP 4: Create Relationship
+
+1. Go to **Model View**
+2. Connect:
+
+```
+Sales[OrderDate]  →  DateTable[Date]
+```
+
+> 💡 Viva line:
+> “Relationship connects fact table with date table.”
+
+---
+
+## 🟢 STEP 5: Create DAX Measures (One by One)
+
+### 1️⃣ Total Sales
+
+**Modeling → New Measure**
+
+```DAX
+Total Sales = SUM(Sales[SalesAmount])
+```
+
+---
+
+### 2️⃣ Sales Year-To-Date (YTD)
+
+```DAX
+Sales YTD =
+TOTALYTD(
+    [Total Sales],
+    DateTable[Date]
+)
+```
+
+👉 Shows cumulative sales from Jan to current date.
+
+---
+
+### 3️⃣ Sales Last Year
+
+```DAX
+Sales Last Year =
+CALCULATE(
+    [Total Sales],
+    SAMEPERIODLASTYEAR(DateTable[Date])
+)
+```
+
+👉 Compares with previous year.
+
+---
+
+### 4️⃣ Year-over-Year Growth %
+
+```DAX
+YoY Growth % =
+DIVIDE(
+    [Total Sales] - [Sales Last Year],
+    [Sales Last Year],
+    0
+)
+```
+
+---
+
+### 5️⃣ Previous Month Sales
+
+```DAX
+Previous Month Sales =
+CALCULATE(
+    [Total Sales],
+    DATEADD(DateTable[Date], -1, MONTH)
+)
+```
+
+---
+
+## 🟢 STEP 6: Create Visuals
+
+### 🔹 KPI Cards
+
+Create **Cards** for:
+
+* Total Sales
+* Sales Last Year
+* Sales YTD
+* YoY Growth %
+* Previous Month Sales
+
+---
+
+### 🔹 Line Chart (Monthly Comparison)
+
+* X-axis → Month
+* Values → Total Sales, Sales Last Year
+
+---
+
+### 🔹 Area / Column Chart
+
+* Product → Axis
+* Sales YTD → Values
+
+---
+
+## 🗣️ MOST IMPORTANT VIVA QUESTIONS
+
+### Q1: What is Time Intelligence?
+
+✔ Calculations based on time (YTD, YoY, Previous Month)
+
+### Q2: Why Date Table is mandatory?
+
+✔ Time intelligence works only with a marked date table
+
+### Q3: What does YTD mean?
+
+✔ Sales from beginning of year till today
+
+### Q4: SAMEPERIODLASTYEAR does what?
+
+✔ Fetches sales from same period of previous year
+
+---
+
+## 🧠 ONE-LINE PRACTICAL SUMMARY (EXAM READY)
+
+> “In Practical 2, we used DAX time intelligence functions to analyze YTD, YoY, and previous period sales using a date table.”
+
+---
+
+Next options for you:
+
+* 🗣️ **Full Practical 2 viva Q&A**
+* 🔍 **Debug errors if DAX fails**
+* ➡️ **Move to Practical No. 3**
+
+Just say **next** 😊

@@ -1,0 +1,170 @@
+Nice, Sagar 😄
+**Practical No. 3** is actually **easy + scoring**, because it’s more about *using Power BI Service* than heavy DAX.
+
+Let’s do it **cleanly, step-by-step**, exactly how your examiner expects.
+
+---
+
+# 🧪 PRACTICAL NO. 3 – Power BI
+
+## 📌 Operations on Pinned Reports and Visuals
+
+### 🎯 Aim
+
+👉 *To pin visuals from a report to a dashboard and perform operations on them.*
+
+---
+
+## 🟢 STEP 1: Create Sample Data
+
+1. Open **Power BI Desktop**
+2. Click **Home → Enter Data**
+3. Enter this table:
+
+| Product | Sales |
+| ------- | ----- |
+| Laptop  | 45000 |
+| Mobile  | 32000 |
+| Tablet  | 18000 |
+
+4. Name the table: **SalesData**
+5. Click **Load**
+
+> 💡 Viva line:
+> “We created a simple dataset using Enter Data.”
+
+---
+
+## 🟢 STEP 2: Create a Report Visual
+
+1. Go to **Report View**
+2. Select **Clustered Column Chart**
+3. Drag:
+
+   * **Product → Axis**
+   * **Sales → Values**
+4. Rename the report:
+
+   * **Sales Report**
+
+You now have a basic report 📊
+
+---
+
+## 🟢 STEP 3: Publish the Report (IMPORTANT)
+
+1. Click **Home → Publish**
+2. Sign in with your **Power BI account**
+3. Choose **My Workspace**
+4. Wait for **Publish successful** message
+
+✅ Your report is now online in **Power BI Service**
+
+---
+
+## 🟢 STEP 4: Pin Visual to Dashboard (Core of Practical 3)
+
+1. Open browser → go to **app.powerbi.com**
+2. Open **My Workspace**
+3. Click **Sales Report**
+4. Hover over the chart
+5. Click **📌 Pin visual**
+6. Choose **New Dashboard**
+7. Name it: **Sales Dashboard**
+8. Click **Pin**
+
+🎉 Visual is now pinned!
+
+![Image](https://community.fabric.microsoft.com/t5/image/serverpage/image-id/815681i6122C27A4F12AA0F?v=v2)
+
+![Image](https://backtosql.wordpress.com/wp-content/uploads/2018/04/no-refresh.gif)
+
+![Image](https://learn.microsoft.com/en-us/power-bi/visuals/media/power-bi-visualization-q-and-a/power-bi-service-pin-visual.png)
+
+---
+
+## 🟢 STEP 5: View Pinned Visual
+
+1. Open **Sales Dashboard**
+2. You’ll see the chart as a **tile**
+3. Click the tile → it opens the **original report**
+
+> 💡 Viva line:
+> “Pinned visuals act as live tiles linked to reports.”
+
+---
+
+## 🟢 STEP 6: Edit Pinned Visual (Tile Operations)
+
+1. Open **Sales Dashboard**
+2. Click **Edit**
+3. Select the tile
+4. You can:
+
+   * Change **Tile title**
+   * **Resize** the tile
+   * **Move** it (drag & drop)
+5. Click **Save**
+
+---
+
+## 🟢 STEP 7: Remove (Unpin) Visual
+
+1. Hover over the tile
+2. Click **⋮ (three dots)**
+3. Select **Remove tile**
+
+❗ This removes it **only from dashboard**, not from report.
+
+---
+
+## 🧠 IMPORTANT CONCEPTS (Viva Ready)
+
+### 🔹 What is a Dashboard?
+
+✔ A single-page view containing pinned visuals
+
+### 🔹 What is a Pinned Visual?
+
+✔ A visual copied from a report to a dashboard
+
+### 🔹 Does deleting a tile delete report?
+
+✔ ❌ No
+
+---
+
+## 🗣️ MOST EXPECTED VIVA QUESTIONS
+
+### Q1: Difference between Report and Dashboard?
+
+✔ Report → multi-page
+✔ Dashboard → single page
+
+### Q2: What is pinning?
+
+✔ Adding report visuals to dashboard
+
+### Q3: Where do dashboards exist?
+
+✔ Power BI Service only
+
+### Q4: Can dashboards be created in Desktop?
+
+✔ ❌ No
+
+---
+
+## 🧠 ONE-LINE PRACTICAL SUMMARY
+
+> “In Practical 3, we published a report, pinned visuals to a dashboard, and performed tile operations in Power BI Service.”
+
+---
+
+If you want, next we can:
+
+* 🗣️ Do **full viva mock for Practical 3**
+* ➡️ Move to **Practical No. 4 (Pandas – very easy)**
+* ❌ Fix **publish / login issues**
+
+Just say **next** 👍

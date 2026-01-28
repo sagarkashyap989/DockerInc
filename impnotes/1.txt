@@ -1,0 +1,203 @@
+Perfect, Sagar 👍
+Don’t worry—I’ll walk you through **Practical No. 1** **slowly, step-by-step**, assuming you’re **completely new to Power BI**. By the end, you’ll also know **what to say in viva**.
+
+Everything below is exactly based on **Practical 1 from your PDF** .
+
+---
+
+## 🔹 PRACTICAL NO. 1 – Power BI (Beginner Friendly)
+
+### **Aim**
+
+👉 *Create Charts and Reports in Power BI*
+
+---
+
+## 🟢 STEP 1: Open Power BI & Load Sample Data
+
+1. Open **Power BI Desktop**
+2. On the **Home screen**
+3. Click **“Try a sample dataset”**
+4. Select **Financials**
+5. Click **Load**
+
+✅ Power BI will automatically load a table named **Financials**
+
+> 💡 **Viva line:**
+> “We used Power BI’s inbuilt Financials sample dataset for analysis.”
+
+---
+
+## 🟢 STEP 2: Understand the Dataset (Very Important for Viva)
+
+1. Click **Data View** (📊 table icon on left)
+2. Observe these columns:
+
+| Column     | Meaning          |
+| ---------- | ---------------- |
+| Country    | Country name     |
+| Segment    | Business segment |
+| Product    | Product name     |
+| Sales      | Total sales      |
+| Profit     | Net profit       |
+| Discount   | Discount given   |
+| Units Sold | Quantity sold    |
+| Year       | Year             |
+| Month      | Month            |
+
+> 💡 **Viva question:** *What is Sales?*
+> ✔️ “Sales represents total revenue generated.”
+
+---
+
+## 🟢 STEP 3: Create Calculated Measures (DAX)
+
+Go to:
+**Modeling → New Measure**
+
+### 1️⃣ Total Sales
+
+```DAX
+Total Sales = SUM(Financials[Sales])
+```
+
+### 2️⃣ Total Profit
+
+```DAX
+Total Profit = SUM(Financials[Profit])
+```
+
+### 3️⃣ Total Units Sold
+
+```DAX
+Total Units Sold = SUM(Financials[Units Sold])
+```
+
+> 💡 **Viva line:**
+> “Measures are dynamic calculations created using DAX.”
+
+---
+
+## 🟢 STEP 4: Create Charts (Visualizations)
+
+### 📊 Chart 1: Sales by Country (Bar Chart)
+
+1. Select **Clustered Bar Chart**
+2. **Axis** → Country
+3. **Values** → Total Sales
+4. Title → *Sales by Country*
+
+---
+
+### 📊 Chart 2: Profit by Product (Column Chart)
+
+1. Select **Clustered Column Chart**
+2. **Axis** → Product
+3. **Values** → Total Profit
+4. Title → *Profit by Product*
+
+---
+
+### 📈 Chart 3: Monthly Sales Trend (Line Chart)
+
+1. Select **Line Chart**
+2. **X-axis** → Month
+3. **Values** → Total Sales
+4. Title → *Monthly Sales Trend*
+
+---
+
+### 🥧 Chart 4: Sales Distribution by Segment (Pie Chart)
+
+1. Select **Pie Chart**
+2. **Legend** → Segment
+3. **Values** → Total Sales
+4. Title → *Sales Distribution by Segment*
+
+---
+
+### 🍩 Chart 5: Sales & Units Sold by Country (Donut Chart)
+
+1. Select **Donut Chart**
+2. **Legend** → Country
+3. **Values** → Total Sales, Total Units Sold
+4. Title → *Sales and Units Sold by Country*
+
+> 💡 **Viva tip:**
+> “Different charts are used for comparison, trend analysis, and distribution.”
+
+---
+
+## 🟢 STEP 5: Add KPI Cards
+
+### 🟦 Card 1: Total Sales
+
+* Select **Card**
+* Field → Total Sales
+
+### 🟦 Card 2: Total Profit
+
+* Select **Card**
+* Field → Total Profit
+
+### 🟦 Card 3: Total Units Sold
+
+* Select **Card**
+* Field → Total Units Sold
+
+> 💡 **Viva line:**
+> “Cards are used to show key performance indicators.”
+
+---
+
+## 🟢 STEP 6: Add Slicers (Filters)
+
+### 🎛 Year Filter
+
+1. Select **Slicer**
+2. Field → Year
+
+### 🎛 Country Filter
+
+1. Select **Slicer**
+2. Field → Country
+
+✅ These filters affect **all charts together**
+
+> 💡 **Viva question:** *What is a slicer?*
+> ✔️ “Slicer is an interactive filter used to filter report data.”
+
+---
+
+## 🟢 STEP 7: Format the Report
+
+1. Align visuals properly
+2. Go to **View → Themes**
+3. Add report title:
+
+### 📝 **Financial Performance Dashboard**
+
+---
+
+## ✅ FINAL OUTPUT
+
+✔ Dashboard with charts
+✔ KPI cards
+✔ Filters (Year & Country)
+✔ Professional layout
+
+---
+
+## 🎯 ONE-LINE VIVA SUMMARY
+
+> “In Practical 1, we created a Financial Performance Dashboard in Power BI using sample data, DAX measures, charts, KPI cards, and slicers.”
+
+---
+
+If you want, next I can:
+
+* 🗣️ Do **viva Q&A practice**
+* 📸 Show **what your final dashboard should look like**
+* ➡️ Start **Practical No. 2 step-by-step**
+
+Just say **“next”** 😊
